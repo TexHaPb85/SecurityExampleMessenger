@@ -1,7 +1,5 @@
 package com.petproject.messenger.controllers;
 
-
-
 import com.petproject.messenger.entities.Message;
 import com.petproject.messenger.services.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,21 +11,25 @@ import java.util.List;
 @RequestMapping("/message")
 public class MessageController {
 
-    @Autowired
-    private MessageService messageService;
+    private final MessageService messageService;
 
-    @GetMapping()
+    @Autowired
+    public MessageController(MessageService messageService) {
+        this.messageService = messageService;
+    }
+
+    @GetMapping
     public List<Message> getAllMessages(){
         return messageService.findAllMessages();
     }
 
-    @PostMapping()
+    @PostMapping
     public Message createMessage(@RequestBody Message message){
         return messageService.addNewMessage(message);
     }
 
-    @DeleteMapping()
-    public void deleteMessage(@RequestBody Message message){
+    @DeleteMapping("/{id}")
+    public void deleteMessage(@RequestBody Message message, @PathVariable("id") Long id){
         messageService.deleteMessage(message);
     }
 

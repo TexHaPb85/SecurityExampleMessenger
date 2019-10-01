@@ -1,0 +1,27 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet id="1" author="AxWeLL">
+        <insert tableName="users">
+            <column name="login">Max</column>
+            <column name="password">123</column>
+            <column name="phoneNumber">258864478</column>
+            <column name="photo">vfjfjdjfjd</column>
+        </insert>
+        <insert tableName="users">
+            <column name="login">Fax</column>
+            <column name="password">234</column>
+            <column name="phoneNumber">258864589</column>
+            <column name="photo">kdvkdkdkf</column>
+        </insert>
+        <insert tableName="users">
+            <column name="login">Pax</column>
+            <column name="password">4567</column>
+            <column name="phoneNumber">82669855</column>
+            <column name="photo">kkdfkdkfdkf</column>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>

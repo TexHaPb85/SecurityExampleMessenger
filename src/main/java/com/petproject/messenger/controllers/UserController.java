@@ -1,6 +1,5 @@
 package com.petproject.messenger.controllers;
 
-
 import com.petproject.messenger.entities.User;
 import com.petproject.messenger.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,26 +11,30 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-        @Autowired
-        private UserService userService;
+    private final UserService userService;
 
-        @GetMapping()
-        public List<User> getAllUsers(){
-            return userService.findAllUsers();
-        }
+    @Autowired
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
-        @PostMapping()
-        public User createUser(@RequestBody User user){
-            return userService.addNewUser(user);
-        }
+    @GetMapping()
+    public List<User> getAllUsers() {
+        return userService.findAllUsers();
+    }
 
-        @DeleteMapping()
-        public void deleteMessage(@RequestBody User user){
-            userService.deleteUser(user);
-        }
+    @PostMapping()
+    public User createUser(@RequestBody User user) {
+        return userService.addNewUser(user);
+    }
 
-        @PutMapping("/{id}")
-        public User editUserById(@RequestBody User user, @PathVariable("id") Long id){
-            return userService.editUserById(user,id);
-        }
+    @DeleteMapping()
+    public void deleteMessage(@RequestBody User user) {
+        userService.deleteUser(user);
+    }
+
+    @PutMapping("/{id}")
+    public User editUserById(@RequestBody User user, @PathVariable("id") Long id) {
+        return userService.editUserById(user, id);
+    }
 }
