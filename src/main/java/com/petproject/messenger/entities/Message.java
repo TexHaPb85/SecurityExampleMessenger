@@ -10,9 +10,13 @@ public class Message {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="message_id")
     private Long id;
     private String message;
     private TypeOfMessage typeOfMessage;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="user_id")
+    private User user;
 
     public Long getId() {
         return id;

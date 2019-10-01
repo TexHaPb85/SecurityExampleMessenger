@@ -1,0 +1,29 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+    <changeSet id="4" author="AxWeLL">
+        <insert tableName="messages">
+            <column name="message">bla</column>
+            <column name="typeOfMessage">TEXT_MESSAGE</column>
+            <column name="user_id">1</column>
+        </insert>
+        <insert tableName="messages">
+            <column name="message">Kovi</column>
+            <column name="typeOfMessage">AUDIO_MESSAGE</column>
+            <column name="user_id">2</column>
+        </insert>
+        <insert tableName="messages">
+            <column name="message">empty</column>
+            <column name="typeOfMessage">VIDEO_MESSAGE</column>
+            <column name="user_id">2</column>
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
+
+
+
+

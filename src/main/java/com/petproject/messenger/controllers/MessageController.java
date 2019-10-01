@@ -16,18 +16,18 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @GetMapping()
+    @GetMapping
     public List<Message> getAllMessages(){
         return messageService.findAllMessages();
     }
 
-    @PostMapping()
+    @PostMapping
     public Message createMessage(@RequestBody Message message){
         return messageService.addNewMessage(message);
     }
 
-    @DeleteMapping()
-    public void deleteMessage(@RequestBody Message message){
+    @DeleteMapping("/{id}")
+    public void deleteMessage(@RequestBody Message message, @PathVariable("id") Long id){
         messageService.deleteMessage(message);
     }
 
